@@ -21,7 +21,7 @@ class Status implements Action\IAction
         $now   = \DateTime::createFromFormat('U', time());
         $diff  = $now->diff($start);
 
-        return 'Fine, thank you. I am waked up since ' .
+        return 'Fine, thank you. I am awake since ' .
                $start->format('l, jS F Y') .
                ' (since ' .
                static::p($diff->y, 'year') .
