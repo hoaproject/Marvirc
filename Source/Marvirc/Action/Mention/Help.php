@@ -1,5 +1,4 @@
 <?php
-
 namespace Marvirc\Action\Mention;
 
 use Hoa\File\Finder;

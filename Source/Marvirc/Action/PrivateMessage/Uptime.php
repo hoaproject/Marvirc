@@ -1,25 +1,23 @@
 <?php
-
-namespace Marvirc\Action\PrivateMessage {
+namespace Marvirc\Action\PrivateMessage;
 
 use Hoa\Console;
+use Marvirc\Action;
 
-class Uptime implements \Marvirc\Action\IAction {
-
-    public static function getPattern ( ) {
-
+class Uptime implements Action\IAction
+{
+    public static function getPattern()
+    {
         return '#\buptime\b#i';
     }
 
-    public static function getUsage ( ) {
-
+    public static function getUsage()
+    {
         return 'Get the uptime of the server.';
     }
 
-    public static function compute ( Array $data ) {
-
+    public static function compute(array $data)
+    {
         return Console\Processus::execute('uptime');
     }
-}
-
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace Marvirc\Action\Mention;
 
 use Marvirc\Action;

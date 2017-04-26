@@ -1,7 +1,8 @@
 <?php
+namespace Marvirc\Action\PrivateMessage;
 
-namespace Marvirc\Action\PrivateMessage {
+use Marvirc\Action\Mention;
 
-class Board extends \Marvirc\Action\Mention\Board { }
-
+class Board extends Mention\Board
+{
 }

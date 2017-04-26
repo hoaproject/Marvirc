@@ -1,5 +1,4 @@
 <?php
-
 namespace Marvirc\Bin;
 
 use Hoa\Console;
@@ -36,63 +35,62 @@ class Join extends Console\Dispatcher\Kit
 
         while (false !== $c = $this->getOption($v)) {
             switch ($c) {
+                case 's':
+                    $socket = 'tcp://' . $v;
 
-            case 's':
-                $socket = 'tcp://' . $v;
+                    break;
 
-              break;
+                case 'u':
+                    $username = $v;
 
-            case 'u':
-                $username = $v;
+                    break;
 
-              break;
+                case 'c':
+                    $channel = $v;
 
-            case 'c':
-                $channel = $v;
+                    break;
 
-              break;
+                case 'p':
+                    $password = $v;
 
-            case 'p':
-                $password = $v;
+                    break;
 
-              break;
+                case 'f':
+                    $filter = $v;
 
-            case 'f':
-                $filter = $v;
+                    break;
 
-              break;
+                case 'w':
+                    $websocket = 'tcp://' . $v;
 
-            case 'w':
-                $websocket = 'tcp://' . $v;
+                    break;
 
-              break;
+                case 'v':
+                    $verbose = $v;
 
-            case 'v':
-                $verbose = $v;
+                    break;
 
-              break;
+                case 'h':
+                case '?':
+                    return $this->usage();
 
-            case 'h':
-            case '?':
-                return $this->usage();
+                    break;
 
-              break;
+                case '__ambiguous':
+                    $this->resolveOptionAmbiguity($v);
 
-            case '__ambiguous':
-                $this->resolveOptionAmbiguity($v);
-
-              break;
-        }
+                    break;
+            }
         }
 
         if (empty($username) || empty($channel)) {
             return $this->usage();
         }
 
-        $self      = $this;
-        $group     = new Socket\Connection\Group();
-        $client    = new Irc\Client(new Socket\Client($socket));
-        $wsServer  = null;
+        $self     = $this;
+        $group    = new Socket\Connection\Group();
+        $client   = new Irc\Client(new Socket\Client($socket));
+        $wsServer = null;
 
         if (null !== $websocket) {
             $wsServer = new Websocket\Server(new Socket\Server($websocket));

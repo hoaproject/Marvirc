@@ -1,7 +1,8 @@
 <?php
+namespace Marvirc\Action\PrivateMessage;
 
-namespace Marvirc\Action\PrivateMessage {
+use Marvirc\Action\Mention;
 
-class Status extends \Marvirc\Action\Mention\Status { }
-
+class Status extends Mention\Status
+{
 }

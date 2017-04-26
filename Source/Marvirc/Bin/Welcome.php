@@ -1,5 +1,4 @@
 <?php
-
 namespace Marvirc\Bin;
 
 use Hoa\Console\Cursor;

@@ -1,5 +1,4 @@
 <?php
-
 namespace Marvirc\Action;
 
 interface IAction

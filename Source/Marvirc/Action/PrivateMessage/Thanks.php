@@ -1,7 +1,8 @@
 <?php
+namespace Marvirc\Action\PrivateMessage;
 
-namespace Marvirc\Action\PrivateMessage {
+use Marvirc\Action\Mention;
 
-class Thanks extends \Marvirc\Action\Mention\Thanks { }
-
+class Thanks extends Mention\Thanks
+{
 }

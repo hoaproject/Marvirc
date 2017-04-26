@@ -1,7 +1,8 @@
 <?php
+namespace Marvirc\Action\PrivateMessage;
 
-namespace Marvirc\Action\PrivateMessage {
+use Marvirc\Action\Mention;
 
-class HackBook extends \Marvirc\Action\Mention\HackBook { }
-
+class HackBook extends Mention\HackBook
+{
 }

@@ -1,21 +1,22 @@
 <?php
+namespace Marvirc\Action\Mention;
 
-namespace Marvirc\Action\Mention {
+use Marvirc\Action;
 
-class Status implements \Marvirc\Action\IAction {
-
-    public static function getPattern ( ) {
-
+class Status implements Action\IAction
+{
+    public static function getPattern()
+    {
         return '#\b(what(\'s|\s+is)\s+up|how\s+are\s+you)\b#i';
     }
 
-    public static function getUsage ( ) {
-
+    public static function getUsage()
+    {
         return 'Get my current status.';
     }
 
-    public static function compute ( Array $data ) {
-
+    public static function compute(array $data)
+    {
         $start = \DateTime::createFromFormat('U', $_SERVER['REQUEST_TIME']);
         $now   = \DateTime::createFromFormat('U', time());
         $diff  = $now->diff($start);
@@ -33,16 +34,16 @@ class Status implements \Marvirc\Action\IAction {
                round(memory_get_usage(true) / (1 << 10), 2) . 'Kb.';
     }
 
-    protected static function p ( $c, $word, $after = ', ' ) {
-
-        if(0 === $c)
+    protected static function p($c, $word, $after = ', ')
+    {
+        if (0 === $c) {
             return;
+        }
 
-        if(1 === $c)
+        if (1 === $c) {
             return $c . ' ' . $word . $after;
+        }
 
         return $c . ' ' . $word . 's' . $after;
     }
-}
-
 }
